@@ -1,0 +1,19 @@
+{
+  "name": "web-refresher_articles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonymittz/web-refresher.git"
+  },
+  "author": "Anthony Mittz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonymittz/web-refresher/issues"
+  },
+  "homepage": "https://github.com/anthonymittz/web-refresher#readme"
+}

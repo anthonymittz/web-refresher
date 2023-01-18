@@ -1,0 +1,17 @@
+{
+  "sections": [
+    {
+      "id": "common",
+      "title": "Common",
+      "articles": [
+        "bar.md",
+        "foo.md"
+      ]
+    },
+    {
+      "id": "dev",
+      "title": "Development",
+      "articles": []
+    }
+  ]
+}
