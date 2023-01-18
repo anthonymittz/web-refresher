@@ -9,6 +9,7 @@ function Article() {
   return (
     <div>
       <h1>An Article</h1>
+      <small>{ JSON.stringify(data.metadata) }</small>
       { 
         data.ready && 
         <div dangerouslySetInnerHTML={{__html: data.articleHtml}} />

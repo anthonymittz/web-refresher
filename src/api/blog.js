@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { unified } from 'unified';
+import axios from 'axios';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import remarkFrontmatter from 'remark-frontmatter';
+import remarkParseFrontmatter from 'remark-parse-frontmatter';
 import rehypeStringify from 'rehype-stringify';
 
 const mapUrl = "https://raw.githubusercontent.com/anthonymittz/web-refresher/articles/map.json";
@@ -35,6 +36,7 @@ export function useBlogData()
 export function useArticleData(sectionId, articleId)
 {
   const [articleHtml, setArticleHtml] = useState(null);
+  const [metadata, setMetadata] = useState(null);
   const [error, setError] = useState('No error');
   const [ready, setReady] = useState(false);
 
@@ -45,14 +47,17 @@ export function useArticleData(sectionId, articleId)
         unified()
           .use(remarkParse)
           .use(remarkFrontmatter)
+          .use(remarkParseFrontmatter)
           .use(remarkRehype)
           .use(rehypeStringify)
           .process(res.data)
-          .then(result => setArticleHtml(result.value))
+          .then(result => {
+            setArticleHtml(() => result.value); 
+            setMetadata(() => result.data.frontmatter)})
           .finally(() => setReady(true));
       })
       .catch(err => setError(err));
   }, []);
 
-  return {articleHtml, error, ready};
+  return {articleHtml, metadata, error, ready};
 }
