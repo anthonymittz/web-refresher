@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/user.js",
+  "homepage": "https://github.com/anthonymittz/web-refresher",
   "scripts": {
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Anthony Mittz",
   "license": "ISC",
@@ -21,6 +24,10 @@
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "gh-pages": "^4.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "react-pages": "^0.6.27",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
