@@ -9,4 +9,5 @@ body {
 
 .article img {
   width: 100%;
+  filter: blur(4px);
 }
