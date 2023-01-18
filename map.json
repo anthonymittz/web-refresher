@@ -11,7 +11,9 @@
     {
       "id": "dev",
       "title": "Development",
-      "articles": []
+      "articles": [
+        "buz.md"
+      ]
     }
   ]
 }
