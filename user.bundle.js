@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkweb_refresher_client=self.webpackChunkweb_refresher_client||[]).push([[378],{78:(e,r,n)=>{n.r(r),n.d(r,{default:()=>s});var t=n(294);const s=function(){return t.createElement("div",null,"User App")}}}]);

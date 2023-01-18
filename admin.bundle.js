@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkweb_refresher_client=self.webpackChunkweb_refresher_client||[]).push([[328],{454:(e,r,n)=>{n.r(r),n.d(r,{default:()=>c});var t=n(294);const c=function(){return t.createElement("div",null,"Admin App")}}}]);
