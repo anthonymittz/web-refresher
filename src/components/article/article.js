@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { useArticleData } from '../../api/blog';
 
@@ -12,9 +12,38 @@ function Article() {
       <small>{ JSON.stringify(data.metadata) }</small>
       { 
         data.ready && 
-        <div dangerouslySetInnerHTML={{__html: data.articleHtml}} />
+        <Contents data={data.articleHtml} />
       }
     </div>
+  );
+}
+
+function Contents({ data })
+{
+  const container = useRef();
+  const controller = new AbortController();
+
+  useEffect(() => {
+    const images = container.current.getElementsByTagName('img');
+
+    for (let image of images) {
+      const url = image.getAttribute('src');
+      
+      fetch(url.replace('-thumbnail', ''), { signal: controller.signal })
+        .then(response => response.blob())
+        .then(blob => {
+          const imageObjectUrl = URL.createObjectURL(blob);
+          image.setAttribute('src', imageObjectUrl);
+          image.style.filter = 'none';
+        })
+        .catch(_ => {});
+    }
+
+    return () => controller.abort();
+  }, []);
+
+  return (
+    <article className='article' ref={container} dangerouslySetInnerHTML={{__html: data}} />
   );
 }
 

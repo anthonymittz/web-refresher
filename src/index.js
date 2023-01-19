@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
+import './styles/main.css';
 
 const UserApp = lazy(() => import(/* webpackChunkName: "user" */ './user.js'));
 const AdminApp = lazy(() => import(/* webpackChunkName: "admin" */ './admin.js'));
@@ -8,9 +9,9 @@ const AdminApp = lazy(() => import(/* webpackChunkName: "admin" */ './admin.js')
 function Client()
 {
   return(
-    <BrowserRouter>
+    <HashRouter basename='/'>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

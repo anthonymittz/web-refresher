@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const paths = {
   assetFolder: path.join(__dirname, 'assets'),
-  outputDir: path.join(__dirname, 'dist'),
+  outputDir: path.join(__dirname, 'build'),
   entryFile: path.join(__dirname, 'src', 'index.js'),
   htmlTemplate: path.join(__dirname, 'src', 'template.html'),
 };
@@ -23,7 +23,7 @@ const webpackConfig = {
     path: paths.outputDir,
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
-    // publicPath: '/',
+    // publicPath: '/web-refresher/',
   },
   optimization: {
     splitChunks: {
